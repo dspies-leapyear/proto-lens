@@ -111,6 +111,9 @@ generateModule modName fdesc imports publicImports definitions importedEnv servi
           , optionsGhcPragma "-Wno-duplicate-exports"
             -- Don't warn if empty "import public" modules are reexported.
           , optionsGhcPragma "-Wno-dodgy-exports"
+          , optionsGhcPragma "-Wno-missing-export-lists"
+          , optionsGhcPragma "-Wno-missing-import-lists"
+          , optionsGhcPragma "-Wno-missing-local-signatures"
           ]
     mainImports = map (reexported . importQualified)
                     [ "Control.DeepSeq", "Data.ProtoLens.Prism" ]
